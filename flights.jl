@@ -16,7 +16,7 @@
 # Next execute the following:
 # 1. Clone GitHub repository https://github.com/bkamins/ODSC-EUROPE-2021.git containing the tutorial into a local folder
 # 2. Execute `julia --project` in the project folder to start Julia REPL
-# 3. pesss `]` to enter package manager mode and execute `instantiate`; press backspace
+# 3. Press `]` to enter package manager mode and execute `instantiate`; press backspace
 # 4. Follow the code contained in this file
 
 # ## Load the packages we are going to use in this tutorial
@@ -33,7 +33,7 @@ using Statistics
 
 # ## Basic operations on data frames
 
-# Create a samle data frame
+# Create a sample data frame
 
 df = DataFrame(id = ["b","b","b","a","a","c"],
                a = 1:6, b = 7:12, c = 13:18)
@@ -147,7 +147,7 @@ flights == tmp1 == tmp2
 
 # ## Filtering
 
-# Assume we are only interested in fligts from "EWR" to "PHL"
+# Assume we are only interested in flights from "EWR" to "PHL"
 
 # We use indexing
 
@@ -258,9 +258,9 @@ end
 
 # ## Reshaping
 
-# Assume we want to see a cross tabultaion of number of flights per carrier
+# Assume we want to see a cross tabulation of number of flights per carrier
 # in consecutive months.
-# We already know how to get this information if long format.
+# We already know how to get this information in long format.
 
 @chain flights begin
     groupby([:month, :carrier], sort=true)
@@ -381,7 +381,7 @@ end
 
 fast_expand(eachcol(df_long)...)
 
-# let us check if the resutls match
+# let us check if the results match
 
 fast_expand(eachcol(df_long)...) == @chain df_long begin
     combine(:id => ByRow(identity) => :id,
