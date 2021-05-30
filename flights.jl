@@ -14,7 +14,8 @@
 # The tutorial was tested under Julia 1.6.1.
 
 # Next execute the following:
-# 1. Clone GitHub repository https://github.com/bkamins/ODSC-EUROPE-2021.git containing the tutorial into a local folder
+# 1. Clone GitHub repository https://github.com/bkamins/ODSC-EUROPE-2021.git
+#    containing the tutorial into a local folder
 # 2. Execute `julia --project` in the project folder to start Julia REPL
 # 3. Press `]` to enter package manager mode and execute `instantiate`; press backspace
 # 4. Follow the code contained in this file
