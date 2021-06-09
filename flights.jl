@@ -346,8 +346,7 @@ function expand(t, h)
 end
 
 @chain df_long begin
-    combine(:id => ByRow(identity) => :id,
-            [:trials, :heads] => ByRow(expand) => :toss)
+    combine(:id, [:trials, :heads] => ByRow(expand) => :toss)
     @aside println(first(_, 5))
     flatten(:toss)
 end
@@ -355,8 +354,7 @@ end
 # However, it is quite slow
 
 @time @chain df_long begin
-    combine(:id => ByRow(identity) => :id,
-            [:trials, :heads] => ByRow(expand) => :toss)
+    combine(:id, [:trials, :heads] => ByRow(expand) => :toss)
     flatten(:toss)
 end;
 
@@ -385,8 +383,7 @@ fast_expand(eachcol(df_long)...)
 # let us check if the results match
 
 fast_expand(eachcol(df_long)...) == @chain df_long begin
-    combine(:id => ByRow(identity) => :id,
-            [:trials, :heads] => ByRow(expand) => :toss)
+    combine(:id, [:trials, :heads] => ByRow(expand) => :toss)
     flatten(:toss)
 end
 
