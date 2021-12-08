@@ -13,3 +13,5 @@ During this workshop, using hands-on examples, I will discuss the design princip
 and walk you through key functionalities provided by this package.
 
 Please check the flights.jl file in this repository for the instructions.
+
+This version of the tutorial was updated to use Julia 1.7.0 and DataFrames.jl 1.3.0.
