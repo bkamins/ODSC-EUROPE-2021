@@ -11,7 +11,7 @@
 # [Julia](https://julialang.org/) installed
 # and ensure that your system can find the `julia` executable.
 
-# This updated version of the tutorial was tested under Julia 1.7.0 and DataFrames.jl 1.3.0.
+# This updated version of the tutorial was tested under Julia 1.8.1 and DataFrames.jl 1.4.0.
 
 # Next execute the following:
 # 1. Clone GitHub repository https://github.com/bkamins/ODSC-EUROPE-2021.git
@@ -152,7 +152,7 @@ flights == tmp1 == tmp2
 
 # We use indexing
 
-flights[(flights.origin .== "EWR") .& (flights.dest .== "PHL"), :]
+flights[(flights.origin .== "EWR") .&& (flights.dest .== "PHL"), :]
 
 # or specialized functions
 
@@ -252,10 +252,7 @@ leftjoin(flights, months, on=:month)
 end
 
 # All standard joins are supported: `innerjoin`, `leftjoin`, `rightjoin`,
-# `outerjoin`, `semijoin`, `antijoin`, `crossjoin`
-
-# For joins DataFrames.jl also ensures a reasonably good performance.
-# See https://h2oai.github.io/db-benchmark/ for a benchmark
+# `outerjoin`, `semijoin`, `antijoin`, `crossjoin`, also in-place `leftjoin!`
 
 # ## Reshaping
 
@@ -276,6 +273,10 @@ end
     combine(nrow)
     unstack(:month, :carrier, :nrow)
 end
+
+# You can also do it in one shot
+
+unstack(flights, :month, :carrier, :carrier, combine=length)
 
 # In order to go from wide to long format use the `stack` function.
 
