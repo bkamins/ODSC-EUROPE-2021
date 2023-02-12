@@ -11,7 +11,7 @@
 # [Julia](https://julialang.org/) installed
 # and ensure that your system can find the `julia` executable.
 
-# This updated version of the tutorial was tested under Julia 1.8.1 and DataFrames.jl 1.4.0.
+# This updated version of the tutorial was tested under Julia 1.9.0 and DataFrames.jl 1.5.0.
 
 # Next execute the following:
 # 1. Clone GitHub repository https://github.com/bkamins/ODSC-EUROPE-2021.git
